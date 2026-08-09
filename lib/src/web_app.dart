@@ -178,6 +178,9 @@ external void _requestWriteAccess(JSFunction? callback);
 @JS("$webAppPath.requestContact")
 external void _requestContact(JSFunction? callback);
 
+@JS("$webAppPath.requestChat")
+external void _requestChat(JSString reqId, JSFunction? callback);
+
 @JS("$webAppPath.ready")
 external void _ready();
 
@@ -878,6 +881,21 @@ class WebApp {
     void callback(JSBoolean result) => completer.complete(result.toDart);
 
     _requestContact(callback.toJS);
+    return completer.future;
+  }
+
+  /// `Bot API 9.6+` A method that opens a dialog allowing the user to
+  /// select an existing chat or create a new one. If an optional *callback*
+  /// parameter is provided, the *callback* function will be called with a
+  /// boolean as the first argument, indicating whether the message was
+  /// successfully sent. The request id passed to this method must belong
+  /// to a PreparedKeyboardButton previously obtained via the Bot API
+  /// method savePreparedKeyboardButton.
+  Future<bool> requestChat(String reqId) {
+    final completer = Completer<bool>();
+    void callback(JSBoolean result) => completer.complete(result.toDart);
+
+    _requestChat(reqId.toJS, callback.toJS);
     return completer.future;
   }
 

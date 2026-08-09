@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+* Implemented support for **Bot API 9.6**
+    * Added the method requestChat to the class WebApp.
+
+* Implemented support for **Bot API 9.5**
+    * Added the field iconCustomEmojiId to the class BottomButton.
+
 ## 0.1.0
 
 * **Breaking:** Unified the asynchronous API. The callback-based methods and their `*Async` counterparts have been merged into single `Future`-returning methods (e.g. `setItem`, `getItem`, `getItems`, `removeItem`, `removeItems`, `getKeys`, `showPopup`, `openInvoice`, `requestContact`, `init`, `requestAccess`, `authenticate`, `updateBiometricToken`).

@@ -5,6 +5,10 @@ abstract interface class BottomButton {
   /// or secondary for the *secondary* button.
   String get type;
 
+  /// `Bot API 9.5+` Unique identifier of the custom emoji shown before the
+  /// text of the button.
+  String get iconCustomEmojiId;
+
   /// Current button text. Set to *Continue* for the main button and *Cancel* for
   /// the secondary button by default.
   String get text;
