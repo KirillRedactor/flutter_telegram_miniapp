@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_telegram_miniapp/flutter_telegram_miniapp.dart';
 
@@ -49,7 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
       });
       _setupEventListeners();
     } catch (e) {
-      print('Error initializing Mini App: $e');
+      if (kDebugMode) {
+        print('Error initializing Mini App: $e');
+      }
       setState(() {
         _colorScheme = 'Initialization error';
       });
@@ -63,18 +66,24 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         _colorScheme = theme.$1.name;
       });
-      print("Theme changed: ${theme.$1.name}");
+      if (kDebugMode) {
+        print("Theme changed: ${theme.$1.name}");
+      }
     });
 
     eventHandler.viewportChanged.listen((data) {
       setState(() {
         _viewportHeight = data.$2;
       });
-      print("Viewport changed: ${data.$2}");
+      if (kDebugMode) {
+        print("Viewport changed: ${data.$2}");
+      }
     });
 
     eventHandler.mainButtonClicked.listen((event) {
-      print('Main button clicked');
+      if (kDebugMode) {
+        print('Main button clicked');
+      }
       _showPopup();
     });
   }
@@ -86,7 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final buttonId = await WebApp().showPopup(params: popupParams);
-    print("Button clicked: $buttonId");
+    if (kDebugMode) {
+      print("Button clicked: $buttonId");
+    }
   }
 
   @override
@@ -149,7 +160,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 final result = await WebApp().showConfirm(
                   message: "Some message",
                 );
-                print("User clicked: $result");
+                if (kDebugMode) {
+                  print("User clicked: $result");
+                }
               },
               child: const Text('Confirm popup'),
             ),
@@ -163,7 +176,9 @@ class _MyHomePageState extends State<MyHomePage> {
             TextButton(
               onPressed: () async {
                 final result = await WebApp().requestContact();
-                print("User shared contact: $result");
+                if (kDebugMode) {
+                  print("User shared contact: $result");
+                }
               },
               child: Text("Request Contact"),
             ),

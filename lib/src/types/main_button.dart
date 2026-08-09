@@ -9,6 +9,9 @@ const _mainButtonPath = "$webAppPath.MainButton";
 @JS("$_mainButtonPath.type")
 external String get _type;
 
+@JS("$_mainButtonPath.iconCustomEmojiId")
+external String get _iconCustomEmojiId;
+
 @JS("$_mainButtonPath.text")
 external String get _text;
 
@@ -67,6 +70,9 @@ external void _setParams(
 class MainButton implements BottomButton {
   @override
   String get type => _type;
+
+  @override
+  String get iconCustomEmojiId => _iconCustomEmojiId;
 
   @override
   String get text => _text;
