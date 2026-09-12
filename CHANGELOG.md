@@ -2,15 +2,16 @@
 
 ## 0.1.2
 
-* Implement support for **Bot API 10.1**
+* Implemented support for **Bot API 10.1**
+    * Added the field *chat_join_request_query_id* to the class [WebAppInitData](https://core.telegram.org/bots/webapps#webappinitdata).
 
 ## 0.1.1
 
 * Implemented support for **Bot API 9.6**
-    * Added the method requestChat to the class WebApp.
+    * Added the method *requestChat* to the class [WebApp](https://core.telegram.org/bots/webapps#initializing-mini-apps).
 
 * Implemented support for **Bot API 9.5**
-    * Added the field iconCustomEmojiId to the class BottomButton.
+    * Added the field *iconCustomEmojiId* to the class [BottomButton](https://core.telegram.org/bots/webapps#bottombutton).
 
 ## 0.1.0
 
