@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+* Implement support for **Bot API 10.1**
+
 ## 0.1.1
 
 * Implemented support for **Bot API 9.6**

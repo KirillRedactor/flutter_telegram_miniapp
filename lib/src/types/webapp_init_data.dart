@@ -2,6 +2,7 @@ part of '../../flutter_telegram_miniapp.dart';
 
 class WebAppInitData {
   final String? queryId;
+  final String? chatJoinRequestQueryId;
   final WebAppUser? user;
   final WebAppUser? reveiver;
   final WebAppChat? chat;
@@ -19,6 +20,7 @@ class WebAppInitData {
   factory WebAppInitData._fromExternal(WebAppInitDataExternal ext) =>
       WebAppInitData(
         queryId: ext.queryId,
+        chatJoinRequestQueryId: ext.chatJoinRequestQueryId,
         user: ext.user != null ? WebAppUser._fromExternal(ext.user!) : null,
         reveiver: ext.receiver != null
             ? WebAppUser._fromExternal(ext.receiver!)
@@ -37,6 +39,7 @@ class WebAppInitData {
 
   WebAppInitData({
     this.queryId,
+    this.chatJoinRequestQueryId,
     this.user,
     this.reveiver,
     this.chat,
@@ -58,6 +61,8 @@ class WebAppInitData {
 extension type WebAppInitDataExternal(JSObject _) implements JSObject {
   @JS("query_id")
   external String? queryId;
+  @JS("chat_join_request_query_id")
+  external String? chatJoinRequestQueryId;
   external WebAppUserExternal? user;
   external WebAppUserExternal? receiver;
   external WebAppChatExternal? chat;
